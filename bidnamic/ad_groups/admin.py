@@ -5,4 +5,4 @@ from bidnamic.ad_groups.models import AdGroup
 
 @admin.register(AdGroup)
 class AdGroupAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["id", "campaign_id", "alias", "status"]
