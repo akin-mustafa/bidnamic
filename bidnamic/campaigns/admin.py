@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from bidnamic.campaigns.models import Campaign
+
+
+@admin.register(Campaign)
+class CampaignAdmin(admin.ModelAdmin):
+    pass

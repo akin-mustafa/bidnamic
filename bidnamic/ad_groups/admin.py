@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from bidnamic.ad_groups.models import AdGroup
+
+
+@admin.register(AdGroup)
+class AdGroupAdmin(admin.ModelAdmin):
+    pass
