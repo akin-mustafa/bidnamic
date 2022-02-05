@@ -1,6 +1,6 @@
 from django.db import models
 
-from apps.campaigns.models import Campaign
+from bidnamic.campaigns.models import Campaign
 from core.models.enums import Statuses
 from core.models.base_models import BaseAbstractModel
 

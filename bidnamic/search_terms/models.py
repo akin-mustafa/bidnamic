@@ -1,7 +1,7 @@
 from django.db import models
 
-from apps.ad_groups.models import AdGroup
-from apps.campaigns.models import Campaign
+from bidnamic.ad_groups.models import AdGroup
+from bidnamic.campaigns.models import Campaign
 from core.models.base_models import BaseAbstractModel
 
 
