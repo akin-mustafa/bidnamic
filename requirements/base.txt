@@ -1,0 +1,21 @@
+redis==4.1.2
+
+# Django
+django==3.2.11
+django-environ==0.8.1
+django-allauth==0.47.0
+celery==5.2.3
+django-celery-beat==2.2.1
+flower==1.0.0
+uvicorn[standard]==0.17.0.post1
+
+
+# Django REST Framework
+djangorestframework==3.13.1
+django-cors-headers==3.11.0
+
+# DRF-spectacular for api documentation
+drf-spectacular==0.21.1
+
+# Django Filter
+django-filter==21.1

@@ -1,0 +1,12 @@
+# PRECAUTION: avoid production dependencies that aren't in development
+
+-r base.txt
+
+gunicorn==20.1.0 
+psycopg2==2.9.3 
+Collectfast==2.2.0 
+
+# Django
+# ------------------------------------------------------------------------------
+django-storages[boto3]==1.12.3 
+django-anymail==8.5 
