@@ -25,7 +25,6 @@ from rest_framework.authtoken.views import obtain_auth_token
 urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     path("users/", include("bidnamic.users.urls", namespace="users")),
-    path("accounts/", include("allauth.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

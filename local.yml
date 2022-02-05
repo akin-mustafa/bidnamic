@@ -1,0 +1,67 @@
+version: '3'
+
+volumes:
+  bidnamic_local_postgres_data: {}
+  bidnamic_local_postgres_data_backups: {}
+
+services:
+  django: &django
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    image: bidnamic_local_django
+    container_name: bidnamic_local_django
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - .:/app:z
+    env_file:
+      - ./.envs/.local/.django
+      - ./.envs/.local/.postgres
+    ports:
+      - "8000:8000"
+    command: /start
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/local/postgres/Dockerfile
+    image: bidnamic_production_postgres
+    container_name: bidnamic_local_postgres
+    volumes:
+      - bidnamic_local_postgres_data:/var/lib/postgresql/data:Z
+    env_file:
+      - ./.envs/.local/.postgres
+
+  redis:
+    image: redis:6
+    container_name: bidnamic_local_redis
+
+  celeryworker:
+    <<: *django
+    image: bidnamic_local_celeryworker
+    container_name: bidnamic_local_celeryworker
+    depends_on:
+      - redis
+      - postgres
+    ports: []
+    command: /start-celeryworker
+
+  celerybeat:
+    <<: *django
+    image: bidnamic_local_celerybeat
+    container_name: bidnamic_local_celerybeat
+    depends_on:
+      - redis
+      - postgres
+    ports: []
+    command: /start-celerybeat
+
+  flower:
+    <<: *django
+    image: bidnamic_local_flower
+    container_name: bidnamic_local_flower
+    ports:
+      - "5555:5555"
+    command: /start-flower
