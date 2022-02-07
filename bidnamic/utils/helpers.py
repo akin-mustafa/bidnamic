@@ -25,8 +25,7 @@ def get_not_recorded_data(
     existing_ids = model.objects.filter(
         **{f"{model_field}__in": data_ids_list}
     ).values_list("pk", flat=True)
-    non_exists_ids = list(set(data_ids_list) - set(existing_ids))
-    chunk = chunk[getattr(chunk, field).isin(non_exists_ids)]
+    chunk = chunk[~getattr(chunk, field).isin(existing_ids)]
     return chunk
 
 

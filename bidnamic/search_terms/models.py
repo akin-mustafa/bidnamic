@@ -2,6 +2,7 @@ from django.db import models
 
 from bidnamic.ad_groups.models import AdGroup
 from bidnamic.campaigns.models import Campaign
+from bidnamic.search_terms.managers import SearchTermQuerySet
 from core.models.base_models import BaseAbstractModel
 
 
@@ -14,6 +15,7 @@ class SearchTerm(BaseAbstractModel):
     conversion_value = models.DecimalField(decimal_places=2, max_digits=10)
     conversions = models.PositiveIntegerField()
     search_term = models.CharField(max_length=250)
+    objects = models.Manager.from_queryset(SearchTermQuerySet)()
 
     class Meta:
         indexes = (

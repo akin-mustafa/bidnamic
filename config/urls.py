@@ -36,7 +36,7 @@ schema_view = get_schema_view(
         license=openapi.License(name="BSD License"),
     ),
     public=True,
-    permission_classes=[permissions.AllowAny],
+    permission_classes=(permissions.AllowAny,),
 )
 
 urlpatterns = [
@@ -52,8 +52,13 @@ urlpatterns = [
     path(
         "api/campaigns/<str:structure_value>/top_searches/",
         CampaignTopSearchesView.as_view(),
+        name="campaign-top-search",
     ),
-    path("api/ad_groups/<str:alias>/top_searches/", AdGroupTopSearchesView.as_view()),
+    path(
+        "api/ad_groups/<str:alias>/top_searches/",
+        AdGroupTopSearchesView.as_view(),
+        name="ad-group-top-search",
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

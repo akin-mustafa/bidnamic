@@ -82,10 +82,7 @@ EMAIL_SUBJECT_PREFIX = env(
 
 ADMIN_URL = env("DJANGO_ADMIN_URL")
 
-INSTALLED_APPS += ["anymail"]
-
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-ANYMAIL = {}
 
 INSTALLED_APPS = ["collectfast"] + INSTALLED_APPS
 
