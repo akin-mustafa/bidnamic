@@ -44,6 +44,7 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'drf_yasg',
     "django.forms",
 ]
 THIRD_PARTY_APPS = [
@@ -71,8 +72,6 @@ AUTHENTICATION_BACKENDS = [
 AUTH_USER_MODEL = "users.User"
 
 LOGIN_REDIRECT_URL = "users:redirect"
-
-LOGIN_URL = "account_login"
 
 PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.PBKDF2PasswordHasher",

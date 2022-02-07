@@ -1,10 +1,10 @@
 from django.conf import settings
 from rest_framework.routers import DefaultRouter, SimpleRouter
 
+from bidnamic.ad_groups.views import AdGroupViewSet
 from bidnamic.campaigns.views import CampaignViewSet
 from bidnamic.search_terms.views import SearchTermViewSet
 from bidnamic.users.api.views import UserViewSet
-from bidnamic.ad_groups.views import AdGroupViewSet
 
 if settings.DEBUG:
     router = DefaultRouter()

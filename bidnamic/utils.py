@@ -1,4 +1,4 @@
-from typing import Generator, TypeVar, Type
+from typing import Generator, Type, TypeVar
 
 import pandas as pd
 from django.db.models import Model

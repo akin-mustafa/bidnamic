@@ -1,8 +1,8 @@
 from django.db import models
 
 from bidnamic.campaigns.models import Campaign
-from core.models.enums import Statuses
 from core.models.base_models import BaseAbstractModel
+from core.models.enums import Statuses
 
 
 class AdGroup(BaseAbstractModel):
@@ -16,3 +16,5 @@ class AdGroup(BaseAbstractModel):
             models.Index(fields=['alias', 'status']),
         )
 
+    def __str__(self):
+        return f'{self.id}-{self.campaign_id}-{self.alias}-{self.status}'
