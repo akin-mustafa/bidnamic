@@ -11,4 +11,3 @@ class SearchTermSerializer(serializers.ModelSerializer):
 
 class TopSearchesSerializer(serializers.Serializer):
     search_term = serializers.CharField(max_length=250)
-

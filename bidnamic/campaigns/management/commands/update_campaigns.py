@@ -4,14 +4,15 @@ from bidnamic.campaigns.tasks import get_campaigns
 
 
 class Command(BaseCommand):
-    help = 'Gets or updates campaigns.'
+    help = "Gets or updates campaigns."
 
     def add_arguments(self, parser):
-        parser.add_argument('--chunk_size', type=int)
+        parser.add_argument("--chunk_size", type=int)
 
     def handle(self, *args, **options):
-        self.stdout.write(self.style.NOTICE('Started.\nThis may take time, '
-                                            'please be patient'))
-        chunk_size = options.get('chunk_size') or 2000
+        self.stdout.write(
+            self.style.NOTICE("Started.\nThis may take time, " "please be patient")
+        )
+        chunk_size = options.get("chunk_size") or 2000
         get_campaigns(chunk_size)
-        self.stdout.write(self.style.SUCCESS('Finished Successfully'))
+        self.stdout.write(self.style.SUCCESS("Finished Successfully"))

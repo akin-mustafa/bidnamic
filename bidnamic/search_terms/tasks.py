@@ -6,23 +6,26 @@ from bidnamic.ad_groups.tasks import get_ad_groups
 from bidnamic.campaigns.tasks import get_campaigns
 from bidnamic.search_terms.models import SearchTerm
 from bidnamic.search_terms.serializers import SearchTermSerializer
-from bidnamic.utils import (exclude_non_existing_campaigns,
-                            get_not_recorded_data, read_csv_file)
+from bidnamic.utils import (
+    exclude_non_existing_campaigns,
+    get_not_recorded_data,
+    read_csv_file,
+)
 from config import celery_app
 
 logger = logging.getLogger()
 
-SEARCH_TERM_URL: str = 'https://raw.githubusercontent.com/bidnamic/' \
-                    'bidnamic-python-challenge/master/search_terms.csv'
+SEARCH_TERM_URL: str = (
+    "https://raw.githubusercontent.com/bidnamic/"
+    "bidnamic-python-challenge/master/search_terms.csv"
+)
 
 
 @celery_app.task()
 def get_search_terms(chunk_size: int = 2000):
     for chunk in read_csv_file(SEARCH_TERM_URL, chunk_size):
         chunk = exclude_non_existing_campaigns(
-            get_not_recorded_data(
-                SearchTerm, chunk, 'ad_group_id', 'ad_group_id'
-            )
+            get_not_recorded_data(SearchTerm, chunk, "ad_group_id", "ad_group_id")
         )
 
         search_term_objects = []

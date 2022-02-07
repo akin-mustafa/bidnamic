@@ -1,4 +1,4 @@
-from .base import *
+from .base import *  # NOQA
 from .base import env
 
 SECRET_KEY = env("DJANGO_SECRET_KEY")
@@ -15,7 +15,6 @@ CACHES = {
         "LOCATION": env("REDIS_URL"),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-
             "IGNORE_EXCEPTIONS": True,
         },
     }
@@ -93,12 +92,11 @@ INSTALLED_APPS = ["collectfast"] + INSTALLED_APPS
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
-    "filters": {
-        "require_debug_false": {"()": "django.utils.log.RequireDebugFalse"}},
+    "filters": {"require_debug_false": {"()": "django.utils.log.RequireDebugFalse"}},
     "formatters": {
         "verbose": {
             "format": "%(levelname)s %(asctime)s %(module)s "
-                      "%(process)d %(thread)d %(message)s"
+            "%(process)d %(thread)d %(message)s"
         }
     },
     "handlers": {

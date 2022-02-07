@@ -12,9 +12,7 @@ class AdGroup(BaseAbstractModel):
     status = models.CharField(max_length=10, choices=Statuses.choices)
 
     class Meta:
-        indexes = (
-            models.Index(fields=['alias', 'status']),
-        )
+        indexes = (models.Index(fields=["alias", "status"]),)
 
     def __str__(self):
-        return f'{self.id}-{self.campaign_id}-{self.alias}-{self.status}'
+        return f"{self.id}-{self.campaign_id}-{self.alias}-{self.status}"

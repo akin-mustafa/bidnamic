@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class SearchTermsConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'bidnamic.search_terms'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "bidnamic.search_terms"

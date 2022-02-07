@@ -6,4 +6,4 @@ from bidnamic.campaigns.models import Campaign
 class CampaignSerializer(serializers.ModelSerializer):
     class Meta:
         model = Campaign
-        fields = '__all__'
+        fields = "__all__"

@@ -17,10 +17,11 @@ class SearchTerm(BaseAbstractModel):
 
     class Meta:
         indexes = (
-            models.Index(fields=['search_term']),
-            models.Index(fields=['date', 'search_term']),
+            models.Index(fields=["search_term"]),
+            models.Index(fields=["date", "search_term"]),
         )
 
     def __str__(self):
-        return f'{self.campaign_id}-{self.ad_group_id}-' \
-               f'{self.search_term}-{self.date}'
+        return (
+            f"{self.campaign_id}-{self.ad_group_id}-" f"{self.search_term}-{self.date}"
+        )

@@ -7,9 +7,9 @@ class CampaignFilter(filters.FilterSet):
     class Meta:
         model = Campaign
         fields = {
-            'id': ['exact'],
-            'structure_value': ['exact', 'contains'],
-            'status': ['exact'],
-            'created_at': ['exact', 'gt', 'gte', 'lt', 'lte'],
-            'updated_at': ['exact', 'gt', 'gte', 'lt', 'lte'],
+            "id": ["exact"],
+            "structure_value": ["exact", "contains"],
+            "status": ["exact"],
+            "created_at": ["exact", "gt", "gte", "lt", "lte"],
+            "updated_at": ["exact", "gt", "gte", "lt", "lte"],
         }

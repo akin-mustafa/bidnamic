@@ -9,14 +9,16 @@ from config import celery_app
 
 logger = logging.getLogger()
 
-CAMPAIGN_URL: str = 'https://raw.githubusercontent.com/bidnamic/' \
-                    'bidnamic-python-challenge/master/campaigns.csv'
+CAMPAIGN_URL: str = (
+    "https://raw.githubusercontent.com/bidnamic/"
+    "bidnamic-python-challenge/master/campaigns.csv"
+)
 
 
 @celery_app.task()
 def get_campaigns(chunk_size: int = 2000):
     for chunk in read_csv_file(CAMPAIGN_URL, chunk_size):
-        chunk = get_not_recorded_data(Campaign, chunk, 'campaign_id')
+        chunk = get_not_recorded_data(Campaign, chunk, "campaign_id")
         campaign_objects = []
         for campaign in chunk.itertuples():
             data = dict(
@@ -32,6 +34,3 @@ def get_campaigns(chunk_size: int = 2000):
                 logger.warning(e)
 
         Campaign.objects.bulk_create(campaign_objects)
-
-
-
