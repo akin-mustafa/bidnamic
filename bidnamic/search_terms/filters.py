@@ -9,8 +9,8 @@ class SearchTermFilter(filters.FilterSet):
         fields = {
             'id': ['exact'],
             'search_term': ['exact', 'contains'],
-            'ad_group': ['exact'],
-            'campaign': ['exact'],
+            'ad_group_id': ['exact'],
+            'campaign_id': ['exact'],
             'clicks': ['gt', 'gte', 'lt', 'lte'],
             'cost': ['gt', 'gte', 'lt', 'lte'],
             'conversion_value': ['gt', 'gte', 'lt', 'lte'],

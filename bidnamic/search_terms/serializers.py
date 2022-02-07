@@ -1,9 +1,9 @@
 from rest_framework import serializers
 
-from bidnamic.ad_groups.models import AdGroup
+from bidnamic.search_terms.models import SearchTerm
 
 
 class SearchTermSerializer(serializers.ModelSerializer):
     class Meta:
-        model = AdGroup
+        model = SearchTerm
         fields = "__all__"
