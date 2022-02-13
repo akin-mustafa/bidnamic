@@ -18,7 +18,7 @@ if a data has a related object that doesn't exist on database, the data will be 
 
         $ python manage.py update_search_terms
 
-- this command pull campaigns, ad groups and search terms by order
+- this command pull campaigns, ad groups and search terms in order
 
 
 ### Setting Up Your Users
