@@ -50,12 +50,12 @@ urlpatterns = [
     path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
     path("users/", include("bidnamic.users.urls", namespace="users")),
     path(
-        "api/campaigns/<str:structure_value>/top_searches/",
+        "api/campaigns/top_searches/",
         CampaignTopSearchesView.as_view(),
         name="campaign-top-search",
     ),
     path(
-        "api/ad_groups/<str:alias>/top_searches/",
+        "api/ad_groups/top_searches/",
         AdGroupTopSearchesView.as_view(),
         name="ad-group-top-search",
     ),

@@ -25,7 +25,8 @@ SEARCH_TERM_URL: str = (
 
 
 @celery_app.task()
-def get_search_terms(path: Union[str, Path, None] = None, chunk_size: int = 2000):
+def get_search_terms(path: Union[str, Path, None] = None,
+                     chunk_size: int = 2000):
     path = path or SEARCH_TERM_URL
     for chunk in read_csv_file(path, chunk_size):
         create_search_terms(chunk)

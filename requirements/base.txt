@@ -1,6 +1,5 @@
 redis==4.1.2
 pandas==1.4.0
-requests==2.27.1
 
 # Django
 django==3.2.11

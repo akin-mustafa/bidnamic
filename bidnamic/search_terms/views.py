@@ -21,11 +21,9 @@ class CampaignTopSearchesView(generics.ListAPIView):
     filterset_class = SearchTermFilter
 
     def get_queryset(self) -> QuerySet:
-        return self.queryset.get_top_searches(
-            campaign__structure_value=self.kwargs["structure_value"]
-        )
+        return self.queryset.get_top_searches("campaign__structure_value")
 
 
 class AdGroupTopSearchesView(CampaignTopSearchesView):
     def get_queryset(self) -> QuerySet:
-        return self.queryset.get_top_searches(ad_group__alias=self.kwargs["alias"])
+        return self.queryset.get_top_searches("ad_group__alias")

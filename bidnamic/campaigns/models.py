@@ -1,6 +1,4 @@
-from django.apps import apps
 from django.db import models
-from django.db.models import Case, DecimalField, F, When
 
 from core.models.base_models import BaseAbstractModel
 from core.models.enums import Statuses

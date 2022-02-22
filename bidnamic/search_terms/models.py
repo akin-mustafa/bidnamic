@@ -25,5 +25,6 @@ class SearchTerm(BaseAbstractModel):
 
     def __str__(self):
         return (
-            f"{self.campaign_id}-{self.ad_group_id}-" f"{self.search_term}-{self.date}"
+            f"{self.campaign_id}-{self.ad_group_id}-"
+            f"{self.search_term}-{self.date}"
         )
