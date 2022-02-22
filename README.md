@@ -8,7 +8,7 @@
 ## Basic Principle
 
 Program downloads and saves campaigns first, then process ad groups and search terms.
-if a data has a related object and the object doesn't exist on database data will be ignored until related data is created
+if a data has a related object that doesn't exist on database, the data will be ignored until related data is created
 
 
 ## Basic Commands
@@ -18,7 +18,7 @@ if a data has a related object and the object doesn't exist on database data wil
 
         $ python manage.py update_search_terms
 
-- this command pull campaigns, ad groups and search terms by order
+- this command pull campaigns, ad groups and search terms in order
 
 
 ### Setting Up Your Users
