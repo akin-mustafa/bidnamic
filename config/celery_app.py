@@ -15,7 +15,7 @@ app = Celery("bidnamic")
 app.config_from_object("django.conf:settings", namespace="CELERY")
 
 app.conf.beat_schedule = {
-    "every_6_hours": {"task": "get_all", "schedule": crontab(hour="*/4")},
+    "every_6_hours": {"task": "tasks.get_all", "schedule": crontab(minute="*/60")},
 }
 
 # Load task modules from all registered Django app configs.
